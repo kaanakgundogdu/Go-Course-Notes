@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //Create new  type of deck
 //whic is a slic of decks
@@ -29,3 +32,8 @@ func (d deck) printDeck(){
 func deal(d deck, handSize int) (deck,deck){
 	return d[:handSize],d[handSize:]
 }
+
+func (d deck) toString() string {
+	return strings.Join(d,",")
+}
+
