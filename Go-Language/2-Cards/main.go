@@ -9,6 +9,7 @@ func main() {
 	// hand.printDeck()
 	// remainingCards.printDeck()
 	fmt.Println(cards.toString())
+	cards.saveToFile("my_cards")
 }
 
 // func newCard() string {
