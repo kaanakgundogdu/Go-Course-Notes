@@ -10,8 +10,7 @@ import (
 )
 
 //Create new  type of deck
-//whic is a slic of decks
-
+//which is a slic of decks
 type deck []string
 
 func newDeck() deck  {
