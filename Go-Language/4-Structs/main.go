@@ -10,7 +10,7 @@ type contactInfo struct{
 type person struct {
 	firstname string
 	lastName  string
-	contact contactInfo
+	contactInfo // you dont have to specify field name here
 }
 
 func main() {
@@ -31,7 +31,7 @@ func main() {
 	jim:= person{
 		firstname: "Jim",
 		lastName: "Mor",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email: "jim@gmail.com",
 			zipCode: 40000,
 		},
@@ -39,4 +39,23 @@ func main() {
 
 	fmt.Printf("%+v\n",jim)
 
+	fmt.Println("------Struct with receiver function------")
+	//go is passby language if you call a type it make copy of it in memory
+	// jimPointer := &jim //but tehre is a shortcut for this process
+	// jimPointer.updateName("jimmy")
+
+	jim.updateName("Jimmy")//jim is person type but its still work
+	//if you make receiver type of pointer go automaticly takes it pointer
+	//You dont have to do pointer thing for slices
+	jim.printPerson()
+	
+}
+
+
+func (pointerToPerson *person) updateName(newFirstName string){
+	(*pointerToPerson).firstname=newFirstName
+}
+
+func (p person) printPerson()  {
+	fmt.Printf("%+v\n",p)
 }
